@@ -73,7 +73,7 @@ export default function Inspect() {
       </div>
       <div className={styles.stateViewerContainer}>
         <StateViewer
-          storeData={dynamicState?.[selectedKey]?.[selectedType]}
+          storeData={(dynamicState as any)?.[selectedKey]?.[selectedType]}
           selectedStore={selectedStore}
           selectedKey={selectedKey}
           selectedType={selectedType}

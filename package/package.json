@@ -1,0 +1,63 @@
+{
+  "name": "@sandstack/neuron-devtools",
+  "description": "Devtools for the Neuron Global State Manager",
+  "version": "0.0.0",
+  "author": "David A. Sanders",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hjrdave/Neuron.Devtools/issues"
+  },
+  "homepage": "https://sandstack.dev/neuron",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "browserslist": [
+    ">0.2%",
+    "not dead"
+  ],
+  "files": [
+    "**"
+  ],
+  "exports": {
+    "./package.json": "./package.json",
+    "./CONTRIBUTING.md": "./CONTRIBUTING.md",
+    ".": {
+      "require": {
+        "types": "./index.d.ts",
+        "default": "./index.cjs"
+      },
+      "import": {
+        "types": "./index.d.ts",
+        "default": "./index.js"
+      },
+      "module": {
+        "types": "./index.d.ts",
+        "default": "./index.js"
+      },
+      "default": {
+        "types": "./index.d.ts",
+        "default": "./index.js"
+      }
+    }
+  },
+  "keywords": [
+    "npm",
+    "module",
+    "node",
+    "javascript",
+    "typescript",
+    "global-state-management",
+    "state-manager",
+    "global",
+    "neuron",
+    "neuronjs",
+    "@sandstack",
+    "@neuron",
+    "sandstack",
+    "vanilla-neuron"
+  ],
+  "dependencies": {
+    "@sandstack/neuron": "^0.0.0-alpha.0.51"
+  }
+}

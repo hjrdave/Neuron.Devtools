@@ -1,4 +1,4 @@
-import Neuron from "../vanilla";
+import Neuron from "@sandstack/neuron";
 import DevtoolsConnection from "./connect";
 
 interface Options {

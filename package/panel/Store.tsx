@@ -1,6 +1,6 @@
-import { Actions, DispatchPayload, Features } from "../../vanilla";
-import Neuron from "../../react";
-import Persist, { PersistProps } from "../../persist";
+import { Actions, DispatchPayload, Features } from "@sandstack/neuron";
+import Neuron from "@sandstack/neuron/react";
+import Persist, { PersistProps } from "@sandstack/neuron/persist";
 import { CSSProperties } from "react";
 
 export enum PanelPositions {
