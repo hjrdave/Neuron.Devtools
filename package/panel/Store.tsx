@@ -1,6 +1,7 @@
-import { Actions, DispatchPayload, Features } from "@sandstack/neuron";
-import Neuron from "@sandstack/neuron/react";
-import Persist, { PersistProps } from "@sandstack/neuron/persist";
+// @ts-nocheck
+import { Actions, DispatchPayload } from "@sandstack/neuron";
+import { createStore } from "@sandstack/neuron/react";
+import { Persist, PersistProps } from "@sandstack/neuron/persist";
 import { CSSProperties } from "react";
 
 export enum PanelPositions {
@@ -14,7 +15,7 @@ export interface StateItem {
   [stateKey: string]: {
     state: any;
     actions?: Actions;
-    features?: Features;
+    features?: any;
     payload?: DispatchPayload;
   };
 }
@@ -52,8 +53,7 @@ export const {
   onDispatch,
   Module,
   useWeakNeuron,
-} = Neuron.Store<State, PersistProps>();
-
+} = createStore<State, PersistProps>();
 export default function Store() {
   return (
     <>

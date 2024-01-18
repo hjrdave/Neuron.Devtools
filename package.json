@@ -28,11 +28,10 @@
     "vite": "^5.0.8",
     "vite-plugin-css-injected-by-js": "^3.3.1",
     "vite-plugin-dts": "^3.7.0",
-    "vitest": "^1.2.0"
-  },
-  "dependencies": {
+    "vitest": "^1.2.0",
     "@fortawesome/fontawesome-free": "^6.5.1",
     "bootstrap": "^5.3.2",
     "ncp": "^2.0.0"
-  }
+  },
+  "dependencies": {}
 }

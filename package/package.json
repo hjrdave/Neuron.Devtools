@@ -58,6 +58,6 @@
     "vanilla-neuron"
   ],
   "dependencies": {
-    "@sandstack/neuron": "^0.0.0-alpha.0.51"
+    "@sandstack/neuron": "^0.0.0-alpha.0.57"
   }
 }

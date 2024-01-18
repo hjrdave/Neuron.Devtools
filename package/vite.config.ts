@@ -67,5 +67,5 @@ export default defineConfig({
       ],
     },
   },
-  plugins: [dts({ rollupTypes: true }), cssInjectedByJsPlugin(), react()],
+  plugins: [dts(), cssInjectedByJsPlugin(), react()],
 });

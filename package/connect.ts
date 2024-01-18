@@ -12,7 +12,7 @@ export default class DevtoolsConnection implements IDevtoolsConnection {
   connectToPanel = (storeName: string) => {
     this.storeName = storeName;
     addState<{ [key: string]: any }>({
-      key: this.storeName,
+      key: this.storeName as any,
       state: {},
     });
     const currentStoreList = getState<string[]>("devtools_storeList") ?? [];
