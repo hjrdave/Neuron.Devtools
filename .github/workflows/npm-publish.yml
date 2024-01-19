@@ -45,7 +45,7 @@ jobs:
       - name: Installing Packages
         run: npm install --legacy-peer-deps && cd package && npm install --legacy-peer-deps
       - name: Building Package
-        run: cd .. && npm run build:package
+        run: npm run build:package
       - name: Publishing to
         run: cd dist && npm version ${{ env.VERSION }} --no-git-tag-version && npm publish --access public
         env:
