@@ -31,7 +31,7 @@ jobs:
           node-version: 16
       - run: npm install --legacy-peer-deps
       - run: cd package && npm install --legacy-peer-deps
-      - run: cd .. && npm run build:package
+      - run: npm run build:package
 
   Publish:
     needs: Build
