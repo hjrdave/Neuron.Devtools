@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { Actions, DispatchPayload } from "@sandstack/neuron";
 import { createStore } from "@sandstack/neuron/react";
 import { Persist, PersistProps } from "@sandstack/neuron/persist";

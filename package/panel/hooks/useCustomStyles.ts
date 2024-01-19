@@ -1,6 +1,6 @@
-import { useNeuron, CustomStyles } from "../Store";
+import { useNeuron } from "../Store";
 const useCustomStyles = () => {
-  const [customStyles, setCustomStyles] = useNeuron<CustomStyles>(
+  const [customStyles, setCustomStyles] = useNeuron(
     (state) => state.devtools_customStyles
   );
 
