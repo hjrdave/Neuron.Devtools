@@ -1,8 +1,8 @@
-<div><img src='readme-banner.png' /></div>
+<div><img src='https://sandstack.dev/readme-devtools.png' /></div>
 
-[![npm version](https://badge.fury.io/js/@sandstack%2Fneuron.svg)](https://badge.fury.io/js/@sandstack%2Fneuron)
-![build](https://github.com/hjrdave/Neuron/actions/workflows/npm-publish.yml/badge.svg?event=push)
-![npm bundle size](https://img.shields.io/bundlephobia/minzip/%40sandstack%2Fneuron)
+[![npm version](https://badge.fury.io/js/@sandstack%2Fneuron-devtools.svg)](https://badge.fury.io/js/@sandstack%2Fneuron-devtools)
+[![build](https://github.com/hjrdave/Neuron.Devtools/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/hjrdave/Neuron.Devtools/actions/workflows/npm-publish.yml)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/%40sandstack%2Fneuron-devtools)
 
 # Neuron Devtools
 
