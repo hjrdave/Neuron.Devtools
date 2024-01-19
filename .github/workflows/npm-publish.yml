@@ -30,7 +30,8 @@ jobs:
         with:
           node-version: 16
       - run: npm install --legacy-peer-deps
-      - run: npm run build:package
+      - run: cd package && npm install --legacy-peer-deps
+      - run: cd .. && npm run build:package
 
   Publish:
     needs: Build
@@ -42,9 +43,9 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org/
       - name: Installing Packages
-        run: npm install --legacy-peer-deps
+        run: npm install --legacy-peer-deps && cd package && npm install --legacy-peer-deps
       - name: Building Package
-        run: npm run build:package
+        run: cd .. && npm run build:package
       - name: Publishing to
         run: cd dist && npm version ${{ env.VERSION }} --no-git-tag-version && npm publish --access public
         env:
