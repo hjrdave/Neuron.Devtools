@@ -1,4 +1,4 @@
-<div><img src='https://sandstack.dev/readme-neuron.png' /></div>
+<div><img src='readme-banner.png' /></div>
 
 [![npm version](https://badge.fury.io/js/@sandstack%2Fneuron.svg)](https://badge.fury.io/js/@sandstack%2Fneuron)
 ![build](https://github.com/hjrdave/Neuron/actions/workflows/npm-publish.yml/badge.svg?event=push)
