@@ -1,16 +1,6 @@
-<div><img src='https://sandstack.dev/readme-neuron.png' /></div>
-
-[![npm version](https://badge.fury.io/js/@sandstack%2Fneuron.svg)](https://badge.fury.io/js/@sandstack%2Fneuron)
-![build](https://github.com/hjrdave/Neuron/actions/workflows/npm-publish.yml/badge.svg?event=push)
-![npm bundle size](https://img.shields.io/bundlephobia/minzip/%40sandstack%2Fneuron)
-
 # Neuron Devtools
 
 Neuron has it's own dedicated Devtools that can be used to keep track of state in your app. As of now the Devtools are only compatible with Neuron React.
-
-<div style="background-color: #fff3cd; border: 1px solid #ffeeba; padding: 1em;">
-  <strong>Warning:</strong> This library is still experimental and is not ready for production.
-</div>
 
 ## Setup
 
@@ -20,7 +10,7 @@ The `DevtoolsPanel` is a React component. It needs to be added to the top most l
 ```jsx
 import React from "react";
 import ReactDOM from "react-dom/client";
-import DevtoolsPanel from "@sandstack/neuron-devtools";
+import DevtoolsPanel from "@sandstack/neuron/DevtoolsPanel";
 import App from "./App.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
@@ -37,7 +27,7 @@ The `Devtools` module needs to be added to each `Store` you want to track with t
 
 ```jsx
 import {createStore} from "@sandstack/neuron/react";
-import {Devtools} from "@sandstack/neuron-devtools";
+import Devtools from "@sandstack/neuron/modules/devtools";
 
 export const { State, Module } = createStore();
 
@@ -52,5 +42,3 @@ export default function Store() {
 }
 
 ```
-
-You can learn more about Neuron [here](https://sandstack.dev/neuron).
