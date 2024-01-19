@@ -8,7 +8,7 @@
     "tsc": "tsc --noEmit --watch",
     "test:watch": "vitest",
     "test": "vitest run",
-    "build:package": "tsc && vite build --config package/vite.config.ts && ncp package/package.json dist/package.json && ncp package/LICENSE dist/LICENSE && ncp package/CONTRIBUTING.md dist/CONTRIBUTING.md && ncp package/README.md dist/README.md"
+    "build:package": "tsc && vite build --config package/vite.config.ts && ncp package/package.json dist/package.json && ncp package/LICENSE dist/LICENSE && ncp package/CONTRIBUTING.md dist/CONTRIBUTING.md && ncp README.md dist/README.md"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
