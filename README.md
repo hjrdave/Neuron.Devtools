@@ -12,6 +12,14 @@ Neuron has it's own dedicated Devtools that can be used to keep track of state i
   <strong>Warning:</strong> This library is still experimental and is not ready for production.
 </div>
 
+## Install
+
+Install Neuron Devtools package into your project.
+
+```bash
+npm install @sandstack/neuron-devtools
+```
+
 ## Setup
 
 **Add Panel to App**
