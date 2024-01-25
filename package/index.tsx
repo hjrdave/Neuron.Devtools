@@ -1,4 +1,4 @@
-import { default as DevtoolsPanel } from "./panel";
+import { default as DevtoolsPanel } from "./Panel";
 import DevtoolsConnection from "./connect";
 import Devtools from "./module";
 
