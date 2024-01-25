@@ -1,3 +1,3 @@
-import Panel from "./Panel";
+import DevtoolsPanel from "./Panel";
 
-export default Panel;
+export default DevtoolsPanel;

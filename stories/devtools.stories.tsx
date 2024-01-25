@@ -1,7 +1,7 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
 import { StoryFn, Meta } from "@storybook/react";
-import DevtoolsPanel from "../package/index";
+import { DevtoolsPanel } from "../package/index";
+import "../package/index.css";
 
 export default {
   title: "Tests/Devtools",
@@ -10,13 +10,7 @@ export default {
 const PanelTemplate: StoryFn = () => {
   return (
     <>
-      <Container>
-        <Row>
-          <Col>
-            <DevtoolsPanel />
-          </Col>
-        </Row>
-      </Container>
+      <DevtoolsPanel />
     </>
   );
 };
