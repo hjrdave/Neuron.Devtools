@@ -1,2 +1,2 @@
-import DevtoolsPanel from "./Panel";
-export { DevtoolsPanel };
+import { Devtools, DevtoolsConnection, DevtoolsPanel } from "./Panel";
+export { Devtools, DevtoolsConnection, DevtoolsPanel };

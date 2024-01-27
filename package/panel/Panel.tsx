@@ -1,7 +1,36 @@
-export default function DevtoolsPanel() {
+import FixedPanel from "./components/templates/FixedPanel";
+import FloatingIcon from "./components/atoms/FloatingIcon";
+import Store, { CustomStyles } from "./Store";
+import StoreOptions from "./components/atoms/StoreOptions";
+interface Props {
+  openPanel?: boolean;
+  customStyles?: CustomStyles;
+  bottomPanel?: boolean;
+  topPanel?: boolean;
+  leftPanel?: boolean;
+  rightPanel?: boolean;
+}
+export default function Panel({
+  openPanel,
+  customStyles,
+  bottomPanel,
+  topPanel,
+  leftPanel,
+  rightPanel,
+}: Props) {
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <Store />
+      <StoreOptions
+        openPanel={openPanel}
+        customStyles={customStyles}
+        bottomPanel={bottomPanel}
+        topPanel={topPanel}
+        leftPanel={leftPanel}
+        rightPanel={rightPanel}
+      />
+      <FixedPanel />
+      <FloatingIcon />
     </>
   );
 }

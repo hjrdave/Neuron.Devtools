@@ -1,3 +1,5 @@
-import DevtoolsPanel from "./Panel";
+import { default as DevtoolsPanel } from "./Panel";
+import { DevtoolsConnection } from "./connect";
+import { Devtools } from "./module";
 
-export default DevtoolsPanel;
+export { Devtools, DevtoolsConnection, DevtoolsPanel };
