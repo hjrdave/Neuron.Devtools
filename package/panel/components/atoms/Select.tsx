@@ -1,9 +1,18 @@
+import { Fragment } from "react";
 import { Select as SelectMTW, Option } from "@material-tailwind/react";
 interface Props {
   placeholder?: string;
   className?: string;
+  onChange?: (value?: string) => void;
+  options?: string[];
+  selected?: string;
 }
-export default function Select({ placeholder, className }: Props) {
+export default function Select({
+  placeholder,
+  className,
+  options,
+  onChange,
+}: Props) {
   return (
     <>
       <SelectMTW
@@ -11,17 +20,25 @@ export default function Select({ placeholder, className }: Props) {
           mount: { y: 0 },
           unmount: { y: 25 },
         }}
-        className={`border-0 text-white ${className}`}
-        variant="static"
-        menuProps={{ className: "bg-gray-800 border-0" }}
-        labelProps={{ className: "hidden" }}
         placeholder={placeholder}
+        onChange={onChange}
+        className={`rounded-none border-gray-800 border-t-0 border-b-0 border-r-0 ${className}`}
+        labelProps={{ className: "hidden" }}
+        menuProps={{ className: "bg-gray-800 border-0" }}
       >
-        <Option className={"text-white"}>Material Tailwind HTML</Option>
-        <Option className={"text-white"}>Material Tailwind React</Option>
-        <Option className={"text-white"}>Material Tailwind Vue</Option>
-        <Option className={"text-white"}>Material Tailwind Angular</Option>
-        <Option className={"text-white"}>Material Tailwind Svelte</Option>
+        {options?.map((option, index) => (
+          <Fragment key={index}>
+            <Option
+              className={
+                "text-white bg-transparent hover:bg-transparent hover:text-white list-none"
+              }
+              index={index + 1}
+              value={option}
+            >
+              {option}
+            </Option>
+          </Fragment>
+        ))}
       </SelectMTW>
     </>
   );

@@ -1,9 +1,9 @@
 import Crumb, { CrumbTypes } from "../atoms/Crumb";
 
 interface Props {
-  storeName: string;
+  storeName?: string;
   stateKey?: string;
-  stateType?: "state" | "features" | "actions" | "payload";
+  stateType?: string;
 }
 
 export default function BreadCrumbs({ storeName, stateKey, stateType }: Props) {
