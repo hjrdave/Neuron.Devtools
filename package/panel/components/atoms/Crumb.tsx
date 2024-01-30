@@ -31,7 +31,9 @@ export default function Crumb({ label, type, hideArrow }: Props) {
           }`}
         ></i>
         {label}
-        {!hideArrow ? <i className="fa-solid fa-chevron-right ps-2"></i> : null}
+        {!hideArrow ? (
+          <i className="fa-solid fa-chevron-right ps-2 text-gray-500"></i>
+        ) : null}
       </span>
     </>
   );

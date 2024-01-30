@@ -34,7 +34,7 @@ const App = () => {
 const PanelTemplate: StoryFn = () => {
   return (
     <>
-      <DevtoolsPanel />
+      <DevtoolsPanel floatPanelRight floatBtnBottomLeft />
       <Store />
       <App />
     </>

@@ -18,7 +18,7 @@ export default function Header() {
           <PanelPosition />
           <p className={"ps-4"}>
             <i
-              className={`fa-solid fa-minus cursor-pointer hover:text-white`}
+              className={`fa-solid fa-minus cursor-pointer text-gray-500 hover:text-white`}
               onClick={panel.closePanel}
             ></i>
           </p>

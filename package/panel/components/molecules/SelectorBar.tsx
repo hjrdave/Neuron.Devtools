@@ -57,7 +57,7 @@ export default function SelectorBar({
                 "flex justify-center border-t border-gray-800 cursor-pointer hover:bg-gray-800"
               }
             >
-              <i className="fa-solid fa-ellipsis text-3xl text-white"></i>
+              <i className="fa-solid fa-ellipsis text-3xl text-gray-500"></i>
             </div>
           ) : null}
           {show ? (

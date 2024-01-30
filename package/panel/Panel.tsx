@@ -3,34 +3,47 @@ import FloatingIcon from "./components/atoms/FloatingIcon";
 import Store, { CustomStyles } from "./Store";
 import StoreOptions from "./components/atoms/StoreOptions";
 interface Props {
-  openPanel?: boolean;
+  openPanelOnLoad?: boolean;
   customStyles?: CustomStyles;
-  bottomPanel?: boolean;
-  topPanel?: boolean;
-  leftPanel?: boolean;
-  rightPanel?: boolean;
+  floatPanelBottom?: boolean;
+  floatPanelTop?: boolean;
+  floatPanelRight?: boolean;
+  floatPanelLeft?: boolean;
+  floatBtnTopRight?: boolean;
+  floatBtnBottomRight?: boolean;
+  floatBtnTopLeft?: boolean;
+  floatBtnBottomLeft?: boolean;
 }
 export default function Panel({
-  openPanel,
+  openPanelOnLoad,
   customStyles,
-  bottomPanel,
-  topPanel,
-  leftPanel,
-  rightPanel,
+  floatPanelTop,
+  floatPanelRight,
+  floatPanelBottom,
+  floatPanelLeft,
+  floatBtnTopRight,
+  floatBtnBottomRight,
+  floatBtnTopLeft,
+  floatBtnBottomLeft,
 }: Props) {
   return (
     <>
       <Store />
       <StoreOptions
-        openPanel={openPanel}
+        openPanelOnLoad={openPanelOnLoad}
         customStyles={customStyles}
-        bottomPanel={bottomPanel}
-        topPanel={topPanel}
-        leftPanel={leftPanel}
-        rightPanel={rightPanel}
+        floatPanelBottom={floatPanelBottom}
+        floatPanelTop={floatPanelTop}
+        floatPanelLeft={floatPanelLeft}
+        floatPanelRight={floatPanelRight}
+      />
+      <FloatingIcon
+        topLeft={floatBtnTopLeft}
+        topRight={floatBtnTopRight}
+        bottomLeft={floatBtnBottomLeft}
+        bottomRight={floatBtnBottomRight}
       />
       <FixedPanel />
-      <FloatingIcon />
     </>
   );
 }

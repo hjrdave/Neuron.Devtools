@@ -18,7 +18,7 @@ export default function Select({
     (value as string)?.length > 0 ? (
       value
     ) : (
-      <span className={"opacity-75"}>{placeholder}</span>
+      <span className={"opacity-40"}>{placeholder}</span>
     );
   return (
     <>

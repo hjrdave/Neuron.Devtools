@@ -1,7 +1,7 @@
 import { Actions, DispatchPayload } from "@sandstack/neuron";
 import { createStore } from "@sandstack/neuron/react";
 import { Persist, PersistProps } from "@sandstack/neuron/persist";
-import { CSSProperties } from "react";
+import { CSSProperties, ReactNode } from "react";
 
 export enum PanelPositions {
   Top = "top",
@@ -53,7 +53,10 @@ export const {
   Module,
   useWeakNeuron,
 } = createStore<State, PersistProps>();
-export default function Store() {
+interface Props {
+  children?: ReactNode;
+}
+export default function Store({ children }: Props) {
   return (
     <>
       <Module use={Persist} />
@@ -83,10 +86,11 @@ export default function Store() {
         onRun={(payload) => {
           payload.state = [...new Set(payload.state)];
         }}
-        persist
+        //persist
       />
       <State<string[]> name={"devtools_keyList"} state={[]} persist />
       <State<CustomStyles> name={"devtools_customStyles"} state={{}} />
+      {children}
     </>
   );
 }

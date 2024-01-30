@@ -1,42 +1,44 @@
-import { useEffect } from "react";
+import { ReactNode, useEffect } from "react";
 import useCustomStyles from "../../hooks/useCustomStyles";
 import usePanel from "../../hooks/usePanel";
 import { CustomStyles } from "../../Store";
 
 interface Props {
-  openPanel?: boolean;
+  openPanelOnLoad?: boolean;
   customStyles?: CustomStyles;
-  bottomPanel?: boolean;
-  topPanel?: boolean;
-  leftPanel?: boolean;
-  rightPanel?: boolean;
+  floatPanelBottom?: boolean;
+  floatPanelTop?: boolean;
+  floatPanelLeft?: boolean;
+  floatPanelRight?: boolean;
+  children?: ReactNode;
 }
 export default function PanelOptions({
-  openPanel,
+  openPanelOnLoad,
   customStyles,
-  bottomPanel,
-  topPanel,
-  leftPanel,
-  rightPanel,
+  floatPanelBottom,
+  floatPanelTop,
+  floatPanelLeft,
+  floatPanelRight,
+  children,
 }: Props) {
   const { setCustomStyles } = useCustomStyles();
   const panel = usePanel();
-  const defaultPanelState = () => (openPanel ? panel.openPanel() : null);
+  const defaultPanelState = () => (openPanelOnLoad ? panel.openPanel() : null);
   const defaultPanelPosition = () => {
-    bottomPanel
+    floatPanelBottom
       ? panel.attachBottom()
-      : topPanel
+      : floatPanelTop
       ? panel.attachTop()
-      : leftPanel
+      : floatPanelLeft
       ? panel.attachLeft()
-      : rightPanel
+      : floatPanelRight
       ? panel.attachRight()
       : panel.attachTop();
   };
   useEffect(() => {
     defaultPanelState();
     defaultPanelPosition();
+    customStyles ? setCustomStyles(customStyles) : null;
   }, []);
-  customStyles ? setCustomStyles(customStyles) : null;
-  return null;
+  return <>{children}</>;
 }

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import PanelContainer from "../organisms/PanelContainer";
 import SelectorBar from "../molecules/SelectorBar";
 import StateViewer from "../atoms/StateViewer";
@@ -28,6 +29,7 @@ export default function FixedPanel() {
     (store) => store.devtools_selectedType
   );
   const [dynamicState] = useWeakNeuron(selectedStore);
+
   return (
     <>
       {open ? (
@@ -43,12 +45,16 @@ export default function FixedPanel() {
             selectedKey={selectedKey}
             selectedType={selectedType}
           />
-          <StateViewer
-            storeData={(dynamicState as any)?.[selectedKey]?.[selectedType]}
-            selectedStore={selectedStore}
-            selectedKey={selectedKey}
-            selectedType={selectedType}
-          />
+          {selectedStore && selectedKey && selectedType ? (
+            <StateViewer
+              storeData={(dynamicState as any)?.[selectedKey]?.[selectedType]}
+              selectedStore={selectedStore}
+              selectedKey={selectedKey}
+              selectedType={selectedType}
+            />
+          ) : (
+            <p>Select state</p>
+          )}
         </PanelContainer>
       ) : null}
     </>
