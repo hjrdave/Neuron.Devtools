@@ -9,7 +9,7 @@ interface Props {
 export default function BreadCrumbs({ storeName, stateKey, stateType }: Props) {
   return (
     <>
-      <div>
+      <div className={"p-[.70rem]"}>
         {storeName ? (
           <p className={"text-xs mb-0"}>
             <Crumb type={CrumbTypes.Store} label={storeName} />

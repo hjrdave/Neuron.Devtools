@@ -11,7 +11,7 @@ export default function Header() {
         floated={false}
         shadow={false}
         color="transparent"
-        className="m-0 p-3 rounded-none border-b border-gray-800 flex justify-between"
+        className="m-0 p-3 rounded-none flex justify-between"
       >
         <img src={NeuronLogo} width={30} />
         <div className={"flex"}>

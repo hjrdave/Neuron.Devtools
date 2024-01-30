@@ -1,7 +1,8 @@
 import React from "react";
 import { StoryFn, Meta } from "@storybook/react";
+import { Button } from "@material-tailwind/react";
 import { DevtoolsPanel } from "../package/index";
-import { Store } from "./Store";
+import { Store, useNeuron, ScoreActions } from "./Store";
 import "../package/index.css";
 
 export default {
@@ -9,9 +10,23 @@ export default {
 } as Meta;
 
 const App = () => {
+  const [fruit, setFruit] = useNeuron((store) => store.fruit);
+  const [score, , { increment, decrement }] = useNeuron<number, ScoreActions>(
+    (store) => store.score
+  );
   return (
     <>
-      <p>foo</p>
+      <Button onClick={() => setFruit("Pineapple")} className={"mx-1"}>
+        Update Fruit
+      </Button>
+      <Button onClick={increment} className={"mx-1"}>
+        Increment
+      </Button>
+      <Button onClick={decrement} className={"mx-1"}>
+        Decrement
+      </Button>
+      <p>Fruit: {fruit}</p>
+      <p>Score: {score}</p>
     </>
   );
 };
