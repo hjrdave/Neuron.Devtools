@@ -4,7 +4,7 @@
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
-    "skipLibCheck": false,
+    "skipLibCheck": true,
     "baseUrl": ".", // This must be specified if "paths" is.
     "paths": {
       "*": ["./package/node_modules/*"]
@@ -24,7 +24,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["package"],
+  "include": ["package", "custom.d.ts"],
   "exclude": ["package/**/*.test.ts", "package/**/*.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
