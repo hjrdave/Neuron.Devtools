@@ -23,7 +23,7 @@ export default function PanelContainer({ children, className }: Props) {
           {isConnection ? (
             <>
               <CardBody className={"p-0"}>{children}</CardBody>
-              <CardFooter className={"p-2"}>
+              <CardFooter className={"p-2 "}>
                 <></>
               </CardFooter>
             </>

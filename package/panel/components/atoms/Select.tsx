@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import { ReactNode, Fragment } from "react";
 import { Select as SelectMTW, Option } from "@material-tailwind/react";
 interface Props {
   placeholder?: string;
@@ -6,6 +6,8 @@ interface Props {
   onChange?: (value?: string) => void;
   options?: string[];
   value?: string;
+  optionIcon?: ReactNode;
+  uniqueOptionIcon?: (value?: string) => ReactNode;
 }
 export default function Select({
   placeholder,
@@ -13,6 +15,8 @@ export default function Select({
   options,
   onChange,
   value,
+  optionIcon,
+  uniqueOptionIcon,
 }: Props) {
   const _value =
     (value as string)?.length > 0 ? (
@@ -43,6 +47,7 @@ export default function Select({
               index={index + 1}
               value={option}
             >
+              {optionIcon ?? uniqueOptionIcon?.(option)}
               {option}
             </Option>
           </Fragment>

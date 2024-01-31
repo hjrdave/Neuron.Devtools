@@ -3,6 +3,7 @@ import { StoryFn, Meta } from "@storybook/react";
 import { Button } from "@material-tailwind/react";
 import { DevtoolsPanel } from "../package/index";
 import { Store, useNeuron, ScoreActions } from "./Store";
+import { Store2, useNeuron as useNeuron2, LifePointActions } from "./Store2";
 import "../package/index.css";
 
 export default {
@@ -14,6 +15,9 @@ const App = () => {
   const [score, , { increment, decrement }] = useNeuron<number, ScoreActions>(
     (store) => store.score
   );
+  const [pokemon] = useNeuron2((store) => store.pokemon);
+  const [lifePoints] = useNeuron2((store) => store.lifePoints);
+  const [pokemonTrainer] = useNeuron2((store) => store.pokemonTrainer);
   return (
     <>
       <Button onClick={() => setFruit("Pineapple")} className={"mx-1"}>
@@ -25,8 +29,11 @@ const App = () => {
       <Button onClick={decrement} className={"mx-1"}>
         Decrement
       </Button>
-      <p>Fruit: {fruit}</p>
+      <p className={"pt-3"}>Fruit: {fruit}</p>
       <p>Score: {score}</p>
+      <p>Pokemon: {pokemon}</p>
+      <p>Life Points: {lifePoints}</p>
+      <p>Pokemon Trainer: {pokemonTrainer.name}</p>
     </>
   );
 };
@@ -34,8 +41,9 @@ const App = () => {
 const PanelTemplate: StoryFn = () => {
   return (
     <>
-      <DevtoolsPanel floatPanelRight floatBtnBottomLeft />
+      <DevtoolsPanel floatBtnBottomRight attachPanelRight />
       <Store />
+      <Store2 />
       <App />
     </>
   );

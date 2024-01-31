@@ -28,7 +28,7 @@ export default function BreadCrumbs({ storeName, stateKey, stateType }: Props) {
             ) : null}
           </p>
         ) : (
-          <p className={"text-xs mb-0"}>Please select a store.</p>
+          <p className={"text-xs mb-0"}>No Store Selected.</p>
         )}
       </div>
     </>

@@ -33,44 +33,7 @@ export function Store() {
   return (
     <>
       <Module use={Persist} />
-      <Module use={Devtools({ storeName: "feeStore2" })} />
-      <State<string> name={"fruit"} state={"apple"} />
-
-      <State<boolean> name={"isLoading"} state={false} />
-      <State<Person>
-        name={"person"}
-        state={{
-          name: "Bob",
-          gender: "male",
-          jobTitle: "Developer",
-        }}
-      />
-      {/**Persisted State */}
-      <State<number, ScoreActions>
-        name={"score"}
-        state={1000}
-        actions={(dispatch) => ({
-          increment: () =>
-            dispatch((payload) => {
-              payload.state = payload.prevState + 10;
-            }),
-          decrement: () =>
-            dispatch((payload) => {
-              payload.state = payload.prevState - 10;
-            }),
-        })}
-      />
-      <State<string> name={"userName"} state={"Captain Foo"} />
-      <State<string[]> name={"carList"} state={["toyota", "ford", "chevy"]} />
-    </>
-  );
-}
-
-export function Store2() {
-  return (
-    <>
-      <Module use={Persist} />
-      <Module use={Devtools({ storeName: "feeStore" })} />
+      <Module use={Devtools({ storeName: "testStore" })} />
       <State<string> name={"fruit"} state={"apple"} />
 
       <State<boolean> name={"isLoading"} state={false} />

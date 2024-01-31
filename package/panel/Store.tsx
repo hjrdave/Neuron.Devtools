@@ -1,7 +1,7 @@
 import { Actions, DispatchPayload } from "@sandstack/neuron";
 import { createStore } from "@sandstack/neuron/react";
 import { Persist, PersistProps } from "@sandstack/neuron/persist";
-import { CSSProperties, ReactNode } from "react";
+import { CSSProperties } from "react";
 
 export enum PanelPositions {
   Top = "top",
@@ -20,17 +20,6 @@ export interface StateItem {
 }
 export interface CustomStyles {
   floatingIcon?: CSSProperties;
-  panel?: CSSProperties;
-  topPanel?: CSSProperties;
-  bottomPanel?: CSSProperties;
-  rightPanel?: CSSProperties;
-  leftPanel?: CSSProperties;
-  header?: CSSProperties;
-  breadCrumbs?: CSSProperties;
-  crumb?: CSSProperties;
-  stateSelectors?: CSSProperties;
-  stateViewer?: CSSProperties;
-  panelPositionContainer?: CSSProperties;
 }
 export interface State {
   devtools_panelPosition: PanelPositions;
@@ -53,13 +42,19 @@ export const {
   Module,
   useWeakNeuron,
 } = createStore<State, PersistProps>();
-interface Props {
-  children?: ReactNode;
-}
-export default function Store({ children }: Props) {
+
+export default function Store() {
   return (
     <>
       <Module use={Persist} />
+      <State<string[]>
+        name={"devtools_storeList"}
+        state={[]}
+        onRun={(payload) => {
+          payload.state = [...new Set(payload.state)];
+        }}
+        persist
+      />
       <State<PanelPositions>
         name={"devtools_panelPosition"}
         state={PanelPositions.Top}
@@ -80,17 +75,8 @@ export default function Store({ children }: Props) {
       <State<string> name={"devtools_selectedKey"} state={""} persist />
       <State<string> name={"devtools_selectedType"} state={""} persist />
       <State<boolean> name={"devtools_openPanel"} state={false} persist />
-      <State<string[]>
-        name={"devtools_storeList"}
-        state={[]}
-        onRun={(payload) => {
-          payload.state = [...new Set(payload.state)];
-        }}
-        //persist
-      />
       <State<string[]> name={"devtools_keyList"} state={[]} persist />
       <State<CustomStyles> name={"devtools_customStyles"} state={{}} />
-      {children}
     </>
   );
 }

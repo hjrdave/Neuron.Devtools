@@ -1,4 +1,4 @@
-import { ReactNode, useEffect } from "react";
+import { useEffect } from "react";
 import useCustomStyles from "../../hooks/useCustomStyles";
 import usePanel from "../../hooks/usePanel";
 import { CustomStyles } from "../../Store";
@@ -6,32 +6,30 @@ import { CustomStyles } from "../../Store";
 interface Props {
   openPanelOnLoad?: boolean;
   customStyles?: CustomStyles;
-  floatPanelBottom?: boolean;
-  floatPanelTop?: boolean;
-  floatPanelLeft?: boolean;
-  floatPanelRight?: boolean;
-  children?: ReactNode;
+  attachPanelBottom?: boolean;
+  attachPanelTop?: boolean;
+  attachPanelLeft?: boolean;
+  attachPanelRight?: boolean;
 }
 export default function PanelOptions({
   openPanelOnLoad,
   customStyles,
-  floatPanelBottom,
-  floatPanelTop,
-  floatPanelLeft,
-  floatPanelRight,
-  children,
+  attachPanelBottom,
+  attachPanelTop,
+  attachPanelLeft,
+  attachPanelRight,
 }: Props) {
   const { setCustomStyles } = useCustomStyles();
   const panel = usePanel();
   const defaultPanelState = () => (openPanelOnLoad ? panel.openPanel() : null);
   const defaultPanelPosition = () => {
-    floatPanelBottom
+    attachPanelBottom
       ? panel.attachBottom()
-      : floatPanelTop
+      : attachPanelTop
       ? panel.attachTop()
-      : floatPanelLeft
+      : attachPanelLeft
       ? panel.attachLeft()
-      : floatPanelRight
+      : attachPanelRight
       ? panel.attachRight()
       : panel.attachTop();
   };
@@ -40,5 +38,5 @@ export default function PanelOptions({
     defaultPanelPosition();
     customStyles ? setCustomStyles(customStyles) : null;
   }, []);
-  return <>{children}</>;
+  return null;
 }

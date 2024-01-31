@@ -68,6 +68,7 @@ export default function SelectorBar({
                 options={storeOptions}
                 onChange={onStoreChange}
                 value={selectedStore}
+                optionIcon={<i className="fa-solid fa-cubes pe-2"></i>}
               />
               <Select
                 placeholder="Select Key"
@@ -75,6 +76,7 @@ export default function SelectorBar({
                 options={keyOptions}
                 onChange={onKeyChange}
                 value={selectedKey}
+                optionIcon={<i className="fa-solid fa-cube pe-2"></i>}
               />
               <Select
                 placeholder="Select Type"
@@ -82,6 +84,19 @@ export default function SelectorBar({
                 options={["state", "payload", "features", "actions"]}
                 onChange={onTypeChange}
                 value={selectedType}
+                uniqueOptionIcon={(option) =>
+                  option === "state" ? (
+                    <i className="fa-solid fa-database pe-2"></i>
+                  ) : option === "payload" ? (
+                    <i className="fa-solid fa-box-open pe-2"></i>
+                  ) : option === "features" ? (
+                    <i className="fa-solid fa-gears pe-2"></i>
+                  ) : option === "actions" ? (
+                    <i className="fa-solid fa-bolt pe-2"></i>
+                  ) : (
+                    <></>
+                  )
+                }
               />
             </>
           ) : null}

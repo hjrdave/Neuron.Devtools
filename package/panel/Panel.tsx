@@ -5,10 +5,10 @@ import StoreOptions from "./components/atoms/StoreOptions";
 interface Props {
   openPanelOnLoad?: boolean;
   customStyles?: CustomStyles;
-  floatPanelBottom?: boolean;
-  floatPanelTop?: boolean;
-  floatPanelRight?: boolean;
-  floatPanelLeft?: boolean;
+  attachPanelBottom?: boolean;
+  attachPanelTop?: boolean;
+  attachPanelRight?: boolean;
+  attachPanelLeft?: boolean;
   floatBtnTopRight?: boolean;
   floatBtnBottomRight?: boolean;
   floatBtnTopLeft?: boolean;
@@ -17,10 +17,10 @@ interface Props {
 export default function Panel({
   openPanelOnLoad,
   customStyles,
-  floatPanelTop,
-  floatPanelRight,
-  floatPanelBottom,
-  floatPanelLeft,
+  attachPanelTop,
+  attachPanelRight,
+  attachPanelBottom,
+  attachPanelLeft,
   floatBtnTopRight,
   floatBtnBottomRight,
   floatBtnTopLeft,
@@ -28,22 +28,27 @@ export default function Panel({
 }: Props) {
   return (
     <>
-      <Store />
-      <StoreOptions
-        openPanelOnLoad={openPanelOnLoad}
-        customStyles={customStyles}
-        floatPanelBottom={floatPanelBottom}
-        floatPanelTop={floatPanelTop}
-        floatPanelLeft={floatPanelLeft}
-        floatPanelRight={floatPanelRight}
-      />
-      <FloatingIcon
-        topLeft={floatBtnTopLeft}
-        topRight={floatBtnTopRight}
-        bottomLeft={floatBtnBottomLeft}
-        bottomRight={floatBtnBottomRight}
-      />
-      <FixedPanel />
+      {process.env.NODE_ENV !== "production" ? (
+        <>
+          <Store />
+          <StoreOptions
+            openPanelOnLoad={openPanelOnLoad}
+            customStyles={customStyles}
+            attachPanelBottom={attachPanelBottom}
+            attachPanelTop={attachPanelTop}
+            attachPanelLeft={attachPanelLeft}
+            attachPanelRight={attachPanelRight}
+          />
+          <FloatingIcon
+            topLeft={floatBtnTopLeft}
+            topRight={floatBtnTopRight}
+            bottomLeft={floatBtnBottomLeft}
+            bottomRight={floatBtnBottomRight}
+            style={customStyles?.floatingIcon}
+          />
+          <FixedPanel />
+        </>
+      ) : null}
     </>
   );
 }

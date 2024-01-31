@@ -2,6 +2,7 @@
   "name": "neuron-devtools",
   "private": true,
   "version": "0.0.0",
+  "description": "Devtools for Neuron global state manager. React only.",
   "type": "module",
   "scripts": {
     "storybook:run": "storybook dev -p 6006",
@@ -49,6 +50,6 @@
     "vitest": "^1.2.0"
   },
   "dependencies": {
-    "@sandstack/neuron": "^0.0.0-alpha.0.67"
+    "@sandstack/neuron": "^0.0.0-alpha.0.68"
   }
 }
