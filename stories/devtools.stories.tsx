@@ -4,7 +4,6 @@ import { Button } from "@material-tailwind/react";
 import { DevtoolsPanel } from "../package/index";
 import { Store, useNeuron, ScoreActions } from "./Store";
 import { Store2, useNeuron as useNeuron2 } from "./Store2";
-import "../package/index.css";
 
 export default {
   title: "Tests/Devtools",
