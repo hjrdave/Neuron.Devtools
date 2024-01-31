@@ -1,4 +1,4 @@
-import { addState, getState, setState, StateItem, State } from "./Panel/Store";
+import { addState, getState, setState, StateItem, State } from "./panel/Store";
 import { Payload } from "@sandstack/neuron";
 interface IDevtoolsConnection {
   storeName?: string;
