@@ -1,5 +1,5 @@
 import { Card, CardBody, CardFooter } from "@material-tailwind/react";
-import LogoNeuron from "../../../assets/logo-neuron.svg";
+import LogoNeuron from "../../assets/logo-neuron.svg";
 import Header from "../molecules/Header";
 import { useNeuron } from "../../Store";
 import { ReactNode } from "react";

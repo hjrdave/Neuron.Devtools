@@ -1,5 +1,5 @@
 import { CardHeader } from "@material-tailwind/react";
-import NeuronLogo from "../../../assets/logo-neuron.svg";
+import NeuronLogo from "../../assets/logo-neuron.svg";
 import PanelPosition from "../atoms/PanelPosition";
 import usePanel from "../../hooks/usePanel";
 

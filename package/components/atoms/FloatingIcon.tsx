@@ -1,5 +1,5 @@
 import { CSSProperties } from "react";
-import LogoNeuron from "../../../assets/logo-neuron.svg";
+import LogoNeuron from "../../assets/logo-neuron.svg";
 import usePanel from "../../hooks/usePanel";
 
 interface Props {

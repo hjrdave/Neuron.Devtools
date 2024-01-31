@@ -1,7 +1,7 @@
-import PositionRightIcon from "../../../assets/position-right.svg";
-import PositionLeftIcon from "../../../assets/position-left.svg";
-import PositionTopIcon from "../../../assets/position-top.svg";
-import PositionBottomIcon from "../../../assets/position-bottom.svg";
+import PositionRightIcon from "../../assets/position-right.svg";
+import PositionLeftIcon from "../../assets/position-left.svg";
+import PositionTopIcon from "../../assets/position-top.svg";
+import PositionBottomIcon from "../../assets/position-bottom.svg";
 import { PanelPositions } from "../../Store";
 import usePanel from "../../hooks/usePanel";
 

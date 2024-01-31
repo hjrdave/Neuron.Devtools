@@ -3,7 +3,7 @@ import { StoryFn, Meta } from "@storybook/react";
 import { Button } from "@material-tailwind/react";
 import { DevtoolsPanel } from "../package/index";
 import { Store, useNeuron, ScoreActions } from "./Store";
-import { Store2, useNeuron as useNeuron2, LifePointActions } from "./Store2";
+import { Store2, useNeuron as useNeuron2 } from "./Store2";
 import "../package/index.css";
 
 export default {
