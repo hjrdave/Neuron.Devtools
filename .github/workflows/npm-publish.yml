@@ -30,7 +30,6 @@ jobs:
         with:
           node-version: 16
       - run: npm install --legacy-peer-deps
-      - run: cd package && npm install --legacy-peer-deps
       - run: npm run build:package
 
   Publish:
@@ -43,7 +42,7 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org/
       - name: Installing Packages
-        run: npm install --legacy-peer-deps && cd package && npm install --legacy-peer-deps
+        run: npm install --legacy-peer-deps
       - name: Building Package
         run: npm run build:package
       - name: Publishing to
