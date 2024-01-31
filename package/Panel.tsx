@@ -2,7 +2,6 @@ import FixedPanel from "./components/templates/FixedPanel";
 import FloatingIcon from "./components/atoms/FloatingIcon";
 import Store, { CustomStyles } from "./Store";
 import StoreOptions from "./components/atoms/StoreOptions";
-import "./index.css";
 interface Props {
   openPanelOnLoad?: boolean;
   customStyles?: CustomStyles;

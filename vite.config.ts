@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 import react from "@vitejs/plugin-react";
+import tailwindcss from "tailwindcss";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -20,8 +21,16 @@ export default defineConfig({
         "react/jsx-runtime",
         "@sandstack/neuron",
         "react-json-view",
+        "tailwindcss",
       ],
       output: [
+        {
+          globals: {
+            react: "React",
+            "react-dom": "ReactDOM",
+            tailwindcss: "tailwindcss",
+          },
+        },
         {
           dir: "./dist",
           name: "index",
@@ -61,4 +70,9 @@ export default defineConfig({
     },
   },
   plugins: [react(), dts()],
+  css: {
+    postcss: {
+      plugins: [tailwindcss],
+    },
+  },
 });
