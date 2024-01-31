@@ -1,6 +1,5 @@
 {
   "name": "@sandstack/neuron-devtools",
-  "private": true,
   "description": "Devtools for Neuron global state manager. React only.",
   "version": "0.0.0",
   "author": "David A. Sanders",
