@@ -14,9 +14,9 @@ interface Props {
 export default function Crumb({ label, type, hideArrow }: Props) {
   return (
     <>
-      <span className={"text-white pe-3"}>
+      <span className={"tw-text-white tw-pe-3"}>
         <i
-          className={`fa-solid pe-1 text-[#57c09b] ${
+          className={`fa-solid tw-pe-2 tw-text-[#57c09b] ${
             type === CrumbTypes.Store
               ? "fa-cubes"
               : type === CrumbTypes.State
@@ -32,7 +32,7 @@ export default function Crumb({ label, type, hideArrow }: Props) {
         ></i>
         {label}
         {!hideArrow ? (
-          <i className="fa-solid fa-chevron-right ps-2 text-gray-500"></i>
+          <i className="fa-solid fa-chevron-right tw-ps-2 tw-text-gray-500"></i>
         ) : null}
       </span>
     </>

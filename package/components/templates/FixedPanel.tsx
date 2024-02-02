@@ -8,13 +8,13 @@ export default function FixedPanel() {
   const { position, open, isStacked } = usePanel();
   const positionStyles =
     position === PanelPositions.Top
-      ? "top-2 left-20 right-20"
+      ? "tw-top-2 tw-left-20 tw-right-20"
       : position === PanelPositions.Bottom
-      ? "bottom-2 left-2 right-2 lg:right-20 lg:left-20"
+      ? "tw-bottom-2 tw-left-2 tw-right-2 lg:tw-right-20 lg:tw-left-20"
       : position === PanelPositions.Left
-      ? "right-2 left-2 top-2 md:right-auto md:w-80"
+      ? "tw-right-2 tw-left-2 tw-top-2 md:tw-right-auto md:tw-w-80"
       : position === PanelPositions.Right
-      ? "right-2 left-2 top-2 md:left-auto md:w-80"
+      ? "tw-right-2 tw-left-2 tw-top-2 md:tw-left-auto md:tw-w-80"
       : "";
   const [storeList] = useNeuron((store) => store.devtools_storeList);
   const [keyList] = useNeuron((store) => store.devtools_keyList);
@@ -56,10 +56,10 @@ export default function FixedPanel() {
             />
           ) : (
             <>
-              <div className={"flex justify-center pt-5"}>
-                <i className="fa-solid fa-cubes text-5xl"></i>
+              <div className={"tw-flex tw-justify-center tw-pt-5"}>
+                <i className="fa-solid fa-cubes tw-text-5xl"></i>
               </div>
-              <p className={"text-center text-sm pt-2 pb-3"}>
+              <p className={"tw-text-center tw-text-sm tw-pt-2 tw-pb-3"}>
                 Select a Store, Key, and Type
               </p>
             </>

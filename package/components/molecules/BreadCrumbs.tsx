@@ -9,9 +9,9 @@ interface Props {
 export default function BreadCrumbs({ storeName, stateKey, stateType }: Props) {
   return (
     <>
-      <div className={"p-[.70rem]"}>
+      <div className={"tw-p-[.70rem]"}>
         {storeName ? (
-          <p className={"text-xs mb-0"}>
+          <p className={"tw-text-xs tw-mb-0"}>
             <Crumb type={CrumbTypes.Store} label={storeName} />
             {stateKey ? <Crumb label={stateKey} /> : null}
             {stateType === "state" ? (
@@ -28,7 +28,7 @@ export default function BreadCrumbs({ storeName, stateKey, stateType }: Props) {
             ) : null}
           </p>
         ) : (
-          <p className={"text-xs mb-0"}>No Store Selected.</p>
+          <p className={"tw-text-xs tw-mb-0"}>No Store Selected.</p>
         )}
       </div>
     </>

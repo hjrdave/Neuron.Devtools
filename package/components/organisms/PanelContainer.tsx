@@ -1,4 +1,3 @@
-import { Card, CardBody, CardFooter } from "@material-tailwind/react";
 import LogoNeuron from "../../assets/logo-neuron.svg";
 import Header from "../molecules/Header";
 import { useNeuron } from "../../Store";
@@ -17,27 +16,26 @@ export default function PanelContainer({ children, className }: Props) {
 
   return (
     <>
-      <div className={"relative"}>
-        <Card className={`bg-gray-900 z-50 fixed ${className}`}>
+      <div className={"tw-relative"}>
+        <div
+          className={`tw-flex tw-flex-col tw-bg-clip-border tw-rounded-xl tw-text-gray-700 tw-shadow-md tw-bg-gray-900 tw-z-50 tw-fixed ${className}`}
+        >
           <Header />
           {isConnection ? (
             <>
-              <CardBody className={"p-0"}>{children}</CardBody>
-              <CardFooter className={"p-2 "}>
-                <></>
-              </CardFooter>
+              <div className={"tw-p-0 tw-pb-3"}>{children}</div>
             </>
           ) : (
-            <div className={"pt-4 pb-8 border-t border-gray-800"}>
-              <div className={"flex justify-center"}>
-                <img src={LogoNeuron} className={"p-2"} width={100} />
+            <div className={"tw-pt-4 tw-pb-8 tw-border-t tw-border-gray-800"}>
+              <div className={"tw-flex tw-justify-center"}>
+                <img src={LogoNeuron} className={"tw-p-2"} width={100} />
               </div>
-              <p className={"text-[#57c09b] text-sm text-center"}>
+              <p className={"tw-text-[#57c09b] tw-text-sm tw-text-center"}>
                 No stores are connected.
               </p>
             </div>
           )}
-        </Card>
+        </div>
       </div>
     </>
   );

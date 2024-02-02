@@ -21,21 +21,21 @@ export default function FloatingIcon({
     <>
       {!open ? (
         <div
-          className={`fixed ${
+          className={`tw-fixed ${
             topLeft
-              ? "top-2 left-2"
+              ? "tw-top-2 tw-left-2"
               : topRight
-              ? "top-2 right-2"
+              ? "tw-top-2 tw-right-2"
               : bottomRight
-              ? "bottom-2 right-2"
+              ? "tw-bottom-2 tw-right-2"
               : bottomLeft
-              ? "bottom-2 left-2"
-              : "bottom-2 left-2"
-          } size-16 bg-gray-800 hover:bg-gray-900 rounded-full cursor-pointer scale-95 hover:scale-100 transition-transform transition-colors shadow-sm z-50`}
+              ? "tw-bottom-2 tw-left-2"
+              : "tw-bottom-2 tw-left-2"
+          } tw-size-16 tw-bg-gray-800 hover:tw-bg-gray-900 tw-rounded-full tw-cursor-pointer tw-scale-95 hover:tw-scale-100 tw-transition-transform tw-transition-colors tw-shadow-sm tw-z-50`}
           onClick={openPanel}
           style={style}
         >
-          <img src={LogoNeuron} className={"w-auto p-2"} />
+          <img src={LogoNeuron} className={"tw-w-auto tw-p-2"} />
         </div>
       ) : null}
     </>

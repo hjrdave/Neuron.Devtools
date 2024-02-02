@@ -1,6 +1,5 @@
 import React from "react";
 import { StoryFn, Meta } from "@storybook/react";
-import { Button } from "@material-tailwind/react";
 import { DevtoolsPanel } from "../package/index";
 import { Store, useNeuron, ScoreActions } from "./Store";
 import { Store2, useNeuron as useNeuron2 } from "./Store2";
@@ -19,7 +18,7 @@ const App = () => {
   const [pokemonTrainer] = useNeuron2((store) => store.pokemonTrainer);
   return (
     <>
-      <Button onClick={() => setFruit("Pineapple")} className={"mx-1"}>
+      {/* <Button onClick={() => setFruit("Pineapple")} className={"mx-1"}>
         Update Fruit
       </Button>
       <Button onClick={increment} className={"mx-1"}>
@@ -27,7 +26,7 @@ const App = () => {
       </Button>
       <Button onClick={decrement} className={"mx-1"}>
         Decrement
-      </Button>
+      </Button> */}
       <p className={"pt-3"}>Fruit: {fruit}</p>
       <p>Score: {score}</p>
       <p>Pokemon: {pokemon}</p>

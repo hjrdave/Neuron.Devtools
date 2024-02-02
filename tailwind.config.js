@@ -1,13 +1,10 @@
 /** @type {import('tailwindcss').Config} */
-import withMT from "@material-tailwind/react/utils/withMT";
 
-export default withMT({
+export default {
   content: ["./package/**/*.{js,ts,jsx,tsx}", "./stories/**/*.{js,ts,jsx,tsx}"],
+  important: "#neuron-devtools",
   prefix: "tw-",
-  important: true,
-  corePlugins: {
-    preflight: false,
-  },
+  corePlugins: { preflight: false },
   theme: {
     color: {
       neuron: "#57c09b",
@@ -15,4 +12,4 @@ export default withMT({
     extend: {},
   },
   plugins: [],
-});
+};

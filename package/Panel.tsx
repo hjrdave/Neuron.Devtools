@@ -2,6 +2,7 @@ import FixedPanel from "./components/templates/FixedPanel";
 import FloatingIcon from "./components/atoms/FloatingIcon";
 import Store, { CustomStyles } from "./Store";
 import StoreOptions from "./components/atoms/StoreOptions";
+import "./index.css";
 interface Props {
   openPanelOnLoad?: boolean;
   customStyles?: CustomStyles;
@@ -39,14 +40,16 @@ export default function Panel({
             attachPanelLeft={attachPanelLeft}
             attachPanelRight={attachPanelRight}
           />
-          <FloatingIcon
-            topLeft={floatBtnTopLeft}
-            topRight={floatBtnTopRight}
-            bottomLeft={floatBtnBottomLeft}
-            bottomRight={floatBtnBottomRight}
-            style={customStyles?.floatingIcon}
-          />
-          <FixedPanel />
+          <div id={"neuron-devtools"}>
+            <FloatingIcon
+              topLeft={floatBtnTopLeft}
+              topRight={floatBtnTopRight}
+              bottomLeft={floatBtnBottomLeft}
+              bottomRight={floatBtnBottomRight}
+              style={customStyles?.floatingIcon}
+            />
+            <FixedPanel />
+          </div>
         </>
       ) : null}
     </>

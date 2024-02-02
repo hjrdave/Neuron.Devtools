@@ -1,5 +1,10 @@
-import { ReactNode, Fragment } from "react";
-import { Select as SelectMTW, Option } from "@material-tailwind/react";
+import { ReactNode } from "react";
+import {
+  default as ReactSelect,
+  OptionProps,
+  CSSObjectWithLabel,
+  components,
+} from "react-select";
 interface Props {
   placeholder?: string;
   className?: string;
@@ -8,6 +13,7 @@ interface Props {
   value?: string;
   optionIcon?: ReactNode;
   uniqueOptionIcon?: (value?: string) => ReactNode;
+  isStacked?: boolean;
 }
 export default function Select({
   placeholder,
@@ -16,43 +22,92 @@ export default function Select({
   onChange,
   value,
   optionIcon,
+  isStacked,
   uniqueOptionIcon,
 }: Props) {
-  const _value =
-    (value as string)?.length > 0 ? (
-      value
-    ) : (
-      <span className={"opacity-40"}>{placeholder}</span>
-    );
+  const _options = options?.map((option) => ({
+    label: option,
+    value: option,
+  }));
+  const { Option } = components;
+  const IconOption = (props: any) => (
+    <Option {...props}>
+      {optionIcon ?? uniqueOptionIcon?.(props.data.value)}
+
+      {props.data.label}
+    </Option>
+  );
   return (
     <>
-      <SelectMTW
-        animate={{
-          mount: { y: 0 },
-          unmount: { y: 25 },
-        }}
+      <ReactSelect
+        className={className}
         placeholder={placeholder}
-        className={`rounded-none border-gray-800 text-white ${className}`}
-        labelProps={{ className: "hidden" }}
-        menuProps={{ className: "bg-gray-800 border-0" }}
-        value={_value as string}
-      >
-        {options?.map((option, index) => (
-          <Fragment key={index}>
-            <Option
-              onClick={() => onChange?.(option)}
-              className={
-                "text-white bg-transparent hover:bg-transparent hover:text-white list-none"
-              }
-              index={index + 1}
-              value={option}
-            >
-              {optionIcon ?? uniqueOptionIcon?.(option)}
-              {option}
-            </Option>
-          </Fragment>
-        ))}
-      </SelectMTW>
+        options={_options}
+        components={{ Option: IconOption }}
+        onChange={(selected) => {
+          onChange?.(selected?.value);
+        }}
+        value={value ? { label: value, value: value } : undefined}
+        styles={
+          {
+            control: (baseStyles: CSSObjectWithLabel) => ({
+              ...baseStyles,
+              backgroundColor: "transparent",
+              borderRadius: "0px",
+              borderColor: "rgb(31,41,55)!important",
+              height: "100%",
+              cursor: "pointer",
+              boxShadow: "none!important",
+              borderTop: "1px solid rgb(31,41,55)!important",
+              borderBottom: `${
+                isStacked ? "0px" : "1px"
+              } solid rgb(31,41,55)!important`,
+              borderRight: "0px solid rgb(31,41,55)!important",
+              borderLeft: "1px solid rgb(31,41,55)!important",
+            }),
+            singleValue: (baseStyles: any) => ({
+              ...baseStyles,
+              color: "rgba(255,255,255)",
+              fontSize: ".85rem",
+            }),
+            indicatorSeparator: (baseStyles: any) => ({
+              ...baseStyles,
+              display: "none",
+            }),
+            input: (baseStyles: any) => ({
+              ...baseStyles,
+              color: "rgba(255,255,255)",
+              fontSize: ".85rem",
+            }),
+            menu: (baseStyles: any) => ({
+              ...baseStyles,
+              backgroundColor: "rgb(31 41 55)",
+              padding: ".5rem",
+            }),
+            option: (baseStyles: CSSObjectWithLabel, props: OptionProps) => ({
+              ...baseStyles,
+              cursor: "pointer",
+              backgroundColor: props.isSelected
+                ? "rgb(96 125 139)"
+                : props.isFocused
+                ? "inherited"
+                : "inherited",
+              borderRadius: ".5rem",
+              color: props.isSelected
+                ? "rgb(17 24 39)"
+                : props.isFocused
+                ? "white"
+                : "white",
+              fontSize: ".85rem",
+            }),
+            placeholder: (baseStyles: any) => ({
+              ...baseStyles,
+              color: "#374051",
+              fontSize: ".85rem",
+            }),
+          } as any
+        }
+      />
     </>
   );
 }

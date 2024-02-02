@@ -36,12 +36,16 @@ export default function SelectorBar({
 
   return (
     <>
-      <div className={" border-gray-800"}>
-        <div className={`flex border-1 ${isStacked ? "flex-col" : "flex-row"}`}>
+      <div className={"tw-border-gray-800"}>
+        <div
+          className={`tw-flex tw-border-1 ${
+            isStacked ? "tw-flex-col" : "tw-flex-row"
+          }`}
+        >
           {/**Non Stacked Breadcrumbs */}
           <div
-            className={`w-full flex-col  border-b border-t border-gray-800 ${
-              !isStacked ? "border-b" : "hidden"
+            className={`tw-w-full tw-flex-col  tw-border-b tw-border-t tw-border-gray-800 ${
+              !isStacked ? "tw-border-b" : "tw-hidden"
             }`}
           >
             <BreadCrumbs
@@ -54,57 +58,65 @@ export default function SelectorBar({
             <div
               onClick={() => setShow((prev) => (prev ? false : true))}
               className={
-                "flex justify-center border-t border-gray-800 cursor-pointer hover:bg-gray-800"
+                "tw-flex tw-justify-center tw-border-t tw-border-gray-800 tw-cursor-pointer hover:tw-bg-gray-800"
               }
             >
-              <i className="fa-solid fa-ellipsis text-3xl text-gray-500"></i>
+              <i className="fa-solid fa-ellipsis tw-text-3xl tw-text-gray-500"></i>
             </div>
           ) : null}
           {show ? (
             <>
-              <Select
-                placeholder="Select Store"
-                className={`ps-3 border-r-0`}
-                options={storeOptions}
-                onChange={onStoreChange}
-                value={selectedStore}
-                optionIcon={<i className="fa-solid fa-cubes pe-2"></i>}
-              />
-              <Select
-                placeholder="Select Key"
-                className={`ps-3 border-r-0 ${isStacked ? "border-t-0" : ""}`}
-                options={keyOptions}
-                onChange={onKeyChange}
-                value={selectedKey}
-                optionIcon={<i className="fa-solid fa-cube pe-2"></i>}
-              />
-              <Select
-                placeholder="Select Type"
-                className={`ps-3 border-r-0 ${isStacked ? "border-t-0" : ""}`}
-                options={["state", "payload", "features", "actions"]}
-                onChange={onTypeChange}
-                value={selectedType}
-                uniqueOptionIcon={(option) =>
-                  option === "state" ? (
-                    <i className="fa-solid fa-database pe-2"></i>
-                  ) : option === "payload" ? (
-                    <i className="fa-solid fa-box-open pe-2"></i>
-                  ) : option === "features" ? (
-                    <i className="fa-solid fa-gears pe-2"></i>
-                  ) : option === "actions" ? (
-                    <i className="fa-solid fa-bolt pe-2"></i>
-                  ) : (
-                    <></>
-                  )
-                }
-              />
+              <div
+                className={`tw-w-full tw-flex ${
+                  isStacked ? "tw-flex-col" : "tw-flex-row"
+                }`}
+              >
+                <Select
+                  placeholder="Select Store"
+                  className={"tw-w-full"}
+                  options={storeOptions}
+                  onChange={onStoreChange}
+                  value={selectedStore}
+                  optionIcon={<i className="fa-solid fa-cubes tw-pe-2"></i>}
+                  isStacked={isStacked}
+                />
+                <Select
+                  placeholder="Select Key"
+                  className={"tw-w-full"}
+                  options={keyOptions}
+                  onChange={onKeyChange}
+                  value={selectedKey}
+                  optionIcon={<i className="fa-solid fa-cube tw-pe-2"></i>}
+                  isStacked={isStacked}
+                />
+                <Select
+                  placeholder="Select Type"
+                  className={"tw-w-full"}
+                  options={["state", "payload", "features", "actions"]}
+                  onChange={onTypeChange}
+                  value={selectedType}
+                  uniqueOptionIcon={(option) =>
+                    option === "state" ? (
+                      <i className="fa-solid fa-database tw-pe-2"></i>
+                    ) : option === "payload" ? (
+                      <i className="fa-solid fa-box-open tw-pe-2"></i>
+                    ) : option === "features" ? (
+                      <i className="fa-solid fa-gears tw-pe-2"></i>
+                    ) : option === "actions" ? (
+                      <i className="fa-solid fa-bolt tw-pe-2"></i>
+                    ) : (
+                      <></>
+                    )
+                  }
+                />
+              </div>
             </>
           ) : null}
           {/**Stacked Breadcrumbs */}
           <div
-            className={`w-full flex-col  border-b ${
-              show ? "" : "border-t"
-            } border-gray-800 ${!isStacked ? "hidden" : ""}`}
+            className={`tw-w-full tw-flex-col  tw-border-b ${
+              show ? "" : "tw-border-t"
+            } tw-border-gray-800 ${!isStacked ? "tw-hidden" : ""}`}
           >
             <BreadCrumbs
               storeName={selectedStore}
