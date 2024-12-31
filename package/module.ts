@@ -1,4 +1,4 @@
-import { createModule } from "@sandstack/neuron";
+import { Module } from "@sandstack/neuron";
 import { DevtoolsConnection } from "./connect";
 
 interface Options {
@@ -10,9 +10,9 @@ const moduleName = `@sandstack/neuron-devtools`; //need a unique id that is pass
 export const Devtools = ({ storeName }: Options) => {
   const devtools = new DevtoolsConnection();
   devtools.connectToPanel(storeName);
-  return createModule({
+  return new Module({
     name: moduleName,
-    onLoad: (payload) => {
+    onInit: (payload) => {
       devtools.sendPayloadToPanel(payload);
     },
     onCallback: (payload) => {

@@ -1,33 +1,35 @@
 import PanelContainer from "../organisms/PanelContainer";
 import SelectorBar from "../molecules/SelectorBar";
 import StateViewer from "../atoms/StateViewer";
-import usePanel from "../../hooks/usePanel";
-import { PanelPositions, useNeuron, useWeakNeuron } from "../../Store";
+import usePanel from "../../usePanel";
+import {
+  PANEL_POSITIONS,
+  useStoreList,
+  useKeyList,
+  useSelectedKey,
+  useSelectedType,
+  useSelectedStore,
+  useNeuron,
+} from "../../neurons";
 
 export default function FixedPanel() {
   const { position, open, isStacked } = usePanel();
   const positionStyles =
-    position === PanelPositions.Top
+    position === PANEL_POSITIONS.TOP
       ? "tw-top-2 tw-left-20 tw-right-20"
-      : position === PanelPositions.Bottom
+      : position === PANEL_POSITIONS.BOTTOM
       ? "tw-bottom-2 tw-left-2 tw-right-2 lg:tw-right-20 lg:tw-left-20"
-      : position === PanelPositions.Left
+      : position === PANEL_POSITIONS.LEFT
       ? "tw-right-2 tw-left-2 tw-top-2 md:tw-right-auto md:tw-w-80"
-      : position === PanelPositions.Right
+      : position === PANEL_POSITIONS.RIGHT
       ? "tw-right-2 tw-left-2 tw-top-2 md:tw-left-auto md:tw-w-80"
       : "";
-  const [storeList] = useNeuron((store) => store.devtools_storeList);
-  const [keyList] = useNeuron((store) => store.devtools_keyList);
-  const [selectedStore, setSelectedStore] = useNeuron(
-    (store) => store.devtools_selectedStore
-  );
-  const [selectedKey, setSelectedKey] = useNeuron(
-    (store) => store.devtools_selectedKey
-  );
-  const [selectedType, setSelectedType] = useNeuron(
-    (store) => store.devtools_selectedType
-  );
-  const [dynamicState] = useWeakNeuron(selectedStore);
+  const [storeList] = useStoreList();
+  const [keyList] = useKeyList();
+  const [selectedStore, { set: setSelectedStore }] = useSelectedStore();
+  const [selectedKey, { set: setSelectedKey }] = useSelectedKey();
+  const [selectedType, { set: setSelectedType }] = useSelectedType();
+  const [dynamicState] = useNeuron(selectedStore);
 
   return (
     <>

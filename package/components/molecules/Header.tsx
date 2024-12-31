@@ -1,6 +1,6 @@
 import NeuronLogo from "../../assets/logo-neuron.svg";
 import PanelPosition from "../atoms/PanelPosition";
-import usePanel from "../../hooks/usePanel";
+import { usePanel } from "../../usePanel";
 
 export default function Header() {
   const panel = usePanel();

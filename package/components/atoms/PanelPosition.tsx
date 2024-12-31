@@ -2,8 +2,8 @@ import PositionRightIcon from "../../assets/position-right.svg";
 import PositionLeftIcon from "../../assets/position-left.svg";
 import PositionTopIcon from "../../assets/position-top.svg";
 import PositionBottomIcon from "../../assets/position-bottom.svg";
-import { PanelPositions } from "../../Store";
-import usePanel from "../../hooks/usePanel";
+import { PANEL_POSITIONS } from "../../neurons";
+import { usePanel } from "../../usePanel";
 
 export default function PanelPosition() {
   const panel = usePanel();
@@ -14,7 +14,7 @@ export default function PanelPosition() {
           src={PositionLeftIcon}
           width={"25"}
           className={`tw-me-1 tw-cursor-pointer ${
-            panel.position === PanelPositions.Left
+            panel.position === PANEL_POSITIONS.LEFT
               ? "tw-opacity-100"
               : "tw-opacity-50 hover:tw-opacity-75"
           }`}
@@ -24,7 +24,7 @@ export default function PanelPosition() {
           src={PositionTopIcon}
           width={"25"}
           className={`tw-me-1 tw-cursor-pointer ${
-            panel.position === PanelPositions.Top
+            panel.position === PANEL_POSITIONS.TOP
               ? "tw-opacity-100"
               : "tw-opacity-50 hover:tw-opacity-75"
           }`}
@@ -34,7 +34,7 @@ export default function PanelPosition() {
           src={PositionRightIcon}
           width={"25"}
           className={`tw-me-1 tw-cursor-pointer ${
-            panel.position === PanelPositions.Right
+            panel.position === PANEL_POSITIONS.RIGHT
               ? "tw-opacity-100"
               : "tw-opacity-50 hover:tw-opacity-75"
           }`}
@@ -44,7 +44,7 @@ export default function PanelPosition() {
           src={PositionBottomIcon}
           width={"25"}
           className={`tw-me-1 tw-cursor-pointer ${
-            panel.position === PanelPositions.Bottom
+            panel.position === PANEL_POSITIONS.BOTTOM
               ? "tw-opacity-100"
               : "tw-opacity-50 hover:tw-opacity-75"
           }`}

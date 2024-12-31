@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import useCustomStyles from "../../hooks/useCustomStyles";
-import usePanel from "../../hooks/usePanel";
-import { CustomStyles } from "../../Store";
+import { useCustomStyles } from "../../neurons";
+import { usePanel } from "../../usePanel";
+import { CustomStyles } from "../../neurons";
 
 interface Props {
   openPanelOnLoad?: boolean;
@@ -19,7 +19,7 @@ export default function PanelOptions({
   attachPanelLeft,
   attachPanelRight,
 }: Props) {
-  const { setCustomStyles } = useCustomStyles();
+  const [, { set: setCustomStyles }] = useCustomStyles();
   const panel = usePanel();
   const defaultPanelState = () => (openPanelOnLoad ? panel.openPanel() : null);
   const defaultPanelPosition = () => {

@@ -1,6 +1,6 @@
 import { CSSProperties } from "react";
 import LogoNeuron from "../../assets/logo-neuron.svg";
-import usePanel from "../../hooks/usePanel";
+import { usePanel } from "../../usePanel";
 
 interface Props {
   topLeft?: boolean;

@@ -1,7 +1,7 @@
 import FixedPanel from "./components/templates/FixedPanel";
 import FloatingIcon from "./components/atoms/FloatingIcon";
-import Store, { CustomStyles } from "./Store";
 import StoreOptions from "./components/atoms/StoreOptions";
+import { CustomStyles } from "./neurons";
 import "./index.css";
 interface Props {
   openPanelOnLoad?: boolean;
@@ -31,7 +31,6 @@ export default function Panel({
     <>
       {process.env.NODE_ENV !== "production" ? (
         <>
-          <Store />
           <StoreOptions
             openPanelOnLoad={openPanelOnLoad}
             customStyles={customStyles}

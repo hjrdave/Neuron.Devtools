@@ -1,44 +1,36 @@
-import { addState, getState, setState, StateItem, State } from "./Store";
-import { Payload } from "@sandstack/neuron";
-interface IDevtoolsConnection {
-  storeName?: string;
-  connectToPanel: (storeName: string) => void;
-  sendPayloadToPanel: (
-    payload: Payload<unknown, { [key: string]: any }>
-  ) => void;
-}
+import { client } from "./neurons";
+import { IPayload } from "@sandstack/neuron";
+import { NEURON_KEY } from "./neurons";
 export class DevtoolsConnection implements IDevtoolsConnection {
   public storeName?: string;
   connectToPanel = (storeName: string) => {
     this.storeName = storeName;
-    addState<{ [key: string]: any }>({
-      key: this.storeName as any,
-      state: {},
-    });
-    const currentStoreList = getState<string[]>("devtools_storeList") ?? [];
+    client.neuron({}, { key: this.storeName });
+    const currentStoreList =
+      client.getRef<string[]>(NEURON_KEY.STORE_LIST) ?? [];
     const updatedStoreList = [...currentStoreList, this.storeName];
-    setState("devtools_storeList", updatedStoreList);
+    client.dispatch(NEURON_KEY.STORE_LIST, (payload) => {
+      payload.state = updatedStoreList;
+    });
   };
-  sendPayloadToPanel = (payload: any) => {
+  sendPayloadToPanel = (payload: IPayload<unknown>) => {
     if (this.storeName) {
-      const allStoreItems = getState<{ [key: string]: any }>(
-        this.storeName as keyof State
+      const allStoreItems = client.getRef<{ [key: string]: any }>(
+        this.storeName
       );
-      setState<StateItem>(this.storeName as keyof State, {
-        ...allStoreItems,
-        [payload.key]: {
-          state: payload.state,
-          actions: {},
-          features: payload.features,
-          payload: {
-            key: payload.key,
+      client.dispatch(this.storeName, () => {
+        payload.state = {
+          ...allStoreItems,
+          [payload.key]: {
             state: payload.state,
-            prevState: payload.prevState,
-            features: payload.features,
-            data: payload.data,
-            isDispatchCancelled: payload.isDispatchCancelled(),
+            payload: {
+              key: payload.key,
+              state: payload.state,
+              prevState: payload.prevState,
+              isDispatchCancelled: payload.isDispatchCancelled(),
+            },
           },
-        },
+        };
       });
     } else {
       console.error(
@@ -47,4 +39,10 @@ export class DevtoolsConnection implements IDevtoolsConnection {
       );
     }
   };
+}
+
+interface IDevtoolsConnection {
+  storeName?: string;
+  connectToPanel: (storeName: string) => void;
+  sendPayloadToPanel: (payload: IPayload<unknown>) => void;
 }
