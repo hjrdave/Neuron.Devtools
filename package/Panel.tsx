@@ -28,14 +28,6 @@ export default function Panel({
   floatBtnTopLeft,
   floatBtnBottomLeft,
 }: Props) {
-  const [dataStores] = useNeuronDataStores();
-  const [keyList] = useKeyList();
-  useEffect(() => {
-    console.log("dataStores", dataStores);
-  }, [dataStores]);
-  useEffect(() => {
-    console.log("keyList", keyList);
-  }, [keyList]);
   return (
     <>
       {process.env.NODE_ENV !== "production" ? (
