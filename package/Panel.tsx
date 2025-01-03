@@ -1,8 +1,7 @@
-import { useEffect } from "react";
 import FixedPanel from "./components/templates/FixedPanel";
 import FloatingIcon from "./components/atoms/FloatingIcon";
 import StoreOptions from "./components/atoms/StoreOptions";
-import { CustomStyles, useKeyList, useNeuronDataStores } from "./neurons";
+import { CustomStyles } from "./neurons";
 import "./index.css";
 interface Props {
   openPanelOnLoad?: boolean;
