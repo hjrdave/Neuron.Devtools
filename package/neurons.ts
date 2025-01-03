@@ -1,5 +1,5 @@
 import { NeuronClient } from "@sandstack/neuron/react";
-//import { Persist } from "@sandstack/neuron/persist";
+import { Persist } from "@sandstack/neuron/persist";
 import { CSSProperties } from "react";
 import { IPayload } from "@sandstack/neuron";
 
@@ -24,7 +24,7 @@ export const NEURON_KEY = {
 };
 
 export const { neuron, useNeuron, client } = new NeuronClient({
-  // modules: [Persist()],
+  modules: [Persist()],
 });
 export const useNeuronDataStores = neuron<NeuronDataByStoreName>(
   {},
