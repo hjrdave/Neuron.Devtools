@@ -1,15 +1,15 @@
 import LogoNeuron from "../../assets/logo-neuron.svg";
 import Header from "../molecules/Header";
-import { useStoreList } from "../../neurons";
+import { useStoreNameList } from "../../neurons";
 import { ReactNode } from "react";
 interface Props {
   children?: ReactNode;
   className?: string;
 }
 export default function PanelContainer({ children, className }: Props) {
-  const [storeList] = useStoreList();
-  const isConnection = storeList
-    ? storeList?.length > 0
+  const [storeNameList] = useStoreNameList();
+  const isConnection = storeNameList
+    ? storeNameList?.length > 0
       ? true
       : false
     : false;

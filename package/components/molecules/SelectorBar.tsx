@@ -92,7 +92,7 @@ export default function SelectorBar({
                 <Select
                   placeholder="Select Type"
                   className={"tw-w-full"}
-                  options={["state", "payload", "features", "actions"]}
+                  options={["state", "payload"]}
                   onChange={onTypeChange}
                   value={selectedType}
                   uniqueOptionIcon={(option) =>
@@ -100,10 +100,6 @@ export default function SelectorBar({
                       <i className="fa-solid fa-database tw-pe-2"></i>
                     ) : option === "payload" ? (
                       <i className="fa-solid fa-box-open tw-pe-2"></i>
-                    ) : option === "features" ? (
-                      <i className="fa-solid fa-gears tw-pe-2"></i>
-                    ) : option === "actions" ? (
-                      <i className="fa-solid fa-bolt tw-pe-2"></i>
                     ) : (
                       <></>
                     )

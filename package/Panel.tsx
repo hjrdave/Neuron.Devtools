@@ -1,7 +1,8 @@
+import { useEffect } from "react";
 import FixedPanel from "./components/templates/FixedPanel";
 import FloatingIcon from "./components/atoms/FloatingIcon";
 import StoreOptions from "./components/atoms/StoreOptions";
-import { CustomStyles } from "./neurons";
+import { CustomStyles, useKeyList, useNeuronDataStores } from "./neurons";
 import "./index.css";
 interface Props {
   openPanelOnLoad?: boolean;
@@ -27,6 +28,14 @@ export default function Panel({
   floatBtnTopLeft,
   floatBtnBottomLeft,
 }: Props) {
+  const [dataStores] = useNeuronDataStores();
+  const [keyList] = useKeyList();
+  useEffect(() => {
+    console.log("dataStores", dataStores);
+  }, [dataStores]);
+  useEffect(() => {
+    console.log("keyList", keyList);
+  }, [keyList]);
   return (
     <>
       {process.env.NODE_ENV !== "production" ? (

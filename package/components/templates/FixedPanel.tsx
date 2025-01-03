@@ -1,15 +1,15 @@
 import PanelContainer from "../organisms/PanelContainer";
 import SelectorBar from "../molecules/SelectorBar";
 import StateViewer from "../atoms/StateViewer";
-import usePanel from "../../usePanel";
+import { usePanel } from "../../usePanel";
 import {
   PANEL_POSITIONS,
-  useStoreList,
+  useStoreNameList,
   useKeyList,
   useSelectedKey,
   useSelectedType,
   useSelectedStore,
-  useNeuron,
+  useNeuronDataStores,
 } from "../../neurons";
 
 export default function FixedPanel() {
@@ -24,12 +24,19 @@ export default function FixedPanel() {
       : position === PANEL_POSITIONS.RIGHT
       ? "tw-right-2 tw-left-2 tw-top-2 md:tw-left-auto md:tw-w-80"
       : "";
-  const [storeList] = useStoreList();
+  const [storeNameList] = useStoreNameList();
   const [keyList] = useKeyList();
   const [selectedStore, { set: setSelectedStore }] = useSelectedStore();
   const [selectedKey, { set: setSelectedKey }] = useSelectedKey();
   const [selectedType, { set: setSelectedType }] = useSelectedType();
-  const [dynamicState] = useNeuron(selectedStore);
+  const [neuronData] = useNeuronDataStores();
+  const dataFromStore = neuronData?.[selectedStore]?.[selectedKey] ?? {};
+  const dataToView =
+    selectedType === "payload"
+      ? dataFromStore.payload
+      : selectedType === "state"
+      ? dataFromStore?.payload?.state
+      : undefined;
 
   return (
     <>
@@ -37,7 +44,7 @@ export default function FixedPanel() {
         <PanelContainer className={positionStyles}>
           <SelectorBar
             isStacked={isStacked}
-            storeOptions={storeList}
+            storeOptions={storeNameList}
             keyOptions={keyList}
             onStoreChange={(value) => {
               setSelectedStore(value ?? "");
@@ -51,7 +58,7 @@ export default function FixedPanel() {
           />
           {selectedStore && selectedKey && selectedType ? (
             <StateViewer
-              storeData={(dynamicState as any)?.[selectedKey]?.[selectedType]}
+              storeData={dataToView}
               selectedStore={selectedStore}
               selectedKey={selectedKey}
               selectedType={selectedType}

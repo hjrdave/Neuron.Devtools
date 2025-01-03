@@ -13,7 +13,7 @@ export const Devtools = ({ storeName }: Options) => {
   return new Module({
     name: moduleName,
     onInit: (payload) => {
-      devtools.sendPayloadToPanel(payload);
+      devtools.sendPayloadToPanel(payload); //this is causing error
     },
     onCallback: (payload) => {
       devtools.sendPayloadToPanel(payload);

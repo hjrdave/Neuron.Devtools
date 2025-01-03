@@ -20,9 +20,7 @@ export default function BreadCrumbs({ storeName, stateKey, stateType }: Props) {
             {stateType === "payload" ? (
               <Crumb type={CrumbTypes.Payload} label={"payload"} hideArrow />
             ) : null}
-            {stateType === "features" ? (
-              <Crumb type={CrumbTypes.Features} label={"features"} hideArrow />
-            ) : null}
+
             {stateType === "actions" ? (
               <Crumb type={CrumbTypes.Actions} label={"actions"} hideArrow />
             ) : null}
